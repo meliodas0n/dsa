@@ -27,3 +27,6 @@ class Vector:
 
   def __str__(self):
     return '<' + str(self.__coords)[1 : -1] + '>'
+
+  def __repr__(self):
+    return f"Vector{self.__coords}"
