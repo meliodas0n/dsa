@@ -1,5 +1,4 @@
-def weird_algorithm():
-  n = int(input())
+def weird_algorithm(n=int(input())):
   while n != 1:
     print(n, end=" ")
     if n % 2 == 0: n = int(n / 2)
