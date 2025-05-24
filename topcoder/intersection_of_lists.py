@@ -11,17 +11,16 @@ class LinkedList:
     self.head = None
     for i in datalist:
       if not self.head:
-        self.head = Node(i) 
-        print(self.head)
-        # self.traverse_list()
+        self.head = Node(i)
       else:
-        self.head = self.head.next
-        print(self.head)
-        self.head.next = Node(i)
+        current = self.head
+        while current.next:
+          current = current.next
+        current.next = Node(i)
   
   def traverse_list(self):
     while self.head is not None:
-      print(self.head.data, end="\n")
+      print(self.head.data, end=" ")
       self.head = self.head.next
 
 
