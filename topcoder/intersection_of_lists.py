@@ -1,3 +1,5 @@
+import sys
+
 class Node:
   def __init__(self, data):
     self.data = data 
@@ -6,13 +8,21 @@ class Node:
 class LinkedList:
   def __init__(self, datalist):
     self.datalist = datalist
-    self.head = Node(datalist[0])
-    for i in datalist[1:]:
-      self.head.next = Node(i)
+    self.head = None
+    for i in datalist:
+      if not self.head:
+        self.head = Node(i) 
+        print(self.head)
+        # self.traverse_list()
+      else:
+        self.head = self.head.next
+        print(self.head)
+        self.head.next = Node(i)
   
   def traverse_list(self):
     while self.head is not None:
-      print(self.head.data, end=" ")
+      print(self.head.data, end="\n")
+      self.head = self.head.next
 
 
 def main():
@@ -21,3 +31,11 @@ def main():
 
 if __name__ == "__main__":
   main()
+
+
+"""
+I don't understand 
+how is it not working ?
+# head = Node(1)
+# head.
+"""
