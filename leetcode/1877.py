@@ -2,10 +2,16 @@ from typing import List
 
 class Solution:
     def minPairSum(self, nums: List[int]) -> int:
-        pairs = []
-        for i in range(0, len(nums) - 1, 2):
-            print(i)
-            pairs.append((nums[i], nums[i + 1]))
+        # stole it from comments
+        nums = sorted(nums)
+        max_sum = 0
+        for i in range(len(nums)):
+            max_sum = max(nums[i] + nums[len(nums) - 1 - i], max_sum)
+        return max_sum
+        # pairs = []
+        # for i in range(0, len(nums) - 1, 2):
+        #     print(i)
+        #     pairs.append((nums[i], nums[i + 1]))
 
         # from itertools import pairwise
         # pairs = pairwise(nums)
@@ -15,7 +21,7 @@ class Solution:
         #         if x == pair2[0] or y == pair2[1]:
         #             pairs.pop(j)
 
-        print([x for x in pairs])
+        # print([x for x in pairs])
 
 if __name__ == "__main__":
-    Solution().minPairSum(nums=[3, 5, 2, 3])
+    print(Solution().minPairSum(nums=[3, 5, 2, 3]))
