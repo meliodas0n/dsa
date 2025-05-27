@@ -17,21 +17,15 @@ class InMemoryUserRepository:
   def __init__(self):
     self._users = []
 
-  def add(self, user):
-    self._users.append(user)
-
-  def get_by_username(self, username):
-    return next(user for user in self._users if user.username == username)
+  def add(self, user): self._users.append(user)
+  def get_by_username(self, username): return next(user for user in self._users if user.username == username)
   
 class SQLiteUserRepository:
   def __init__(self, config):
     self._config = config
 
-  def add(self, user):
-    print(f"Running some SQL statements for insert DATABASE_PATH")
-
-  def get_by_username(self, username):
-    print(f"Running some SQL statements for fetch from {self._config.DATABASE_PATH}")
+  def add(self, user): print(f"Running some SQL statements for insert DATABASE_PATH")
+  def get_by_username(self, username): print(f"Running some SQL statements for fetch from {self._config.DATABASE_PATH}")
 
   def test_user_is_added_to_repository():
     username = "john@doe.com"
